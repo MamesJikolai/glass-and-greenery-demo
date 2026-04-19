@@ -45,6 +45,8 @@ INSTALLED_APPS = [
 
     # Custom apps
     'apps.store',
+    'apps.accounts',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -117,11 +119,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Manila"
 
 USE_I18N = True
 
 USE_TZ = True
+
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Static files (CSS, JavaScript, Images)
