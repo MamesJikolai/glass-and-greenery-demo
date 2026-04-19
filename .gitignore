@@ -28,6 +28,9 @@ Backend/media/
 .DS_Store
 **/.DS_Store
 
+__pycache__/
+*.pyc
+
 # IDE / Editor
 .idea
 .vscode/*
