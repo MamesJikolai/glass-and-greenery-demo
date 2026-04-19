@@ -7,34 +7,50 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# DEPENDENCIES (Added **/ to match nested folders)
+# Dependencies
 **/node_modules
 
-# BUILD OUTPUT
+# Build output
 **/dist
 dist-ssr
+build/
 
-# ENVIRONMENT VARIABLES (Important to keep private!)
+# Environment variables
 .env
-# .env.*
-**/.env
+.env.*
+!*.env.example
+
+# Python virtual environments
 venv/
 .venv/
 
-# MEDIA FILES
+# Django
+db.sqlite3
+*.sqlite3
+staticfiles/
 Backend/media/
 
-# SYSTEM FILES
-.DS_Store
-**/.DS_Store
-
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Migrations cache
+**/migrations/__pycache__/
+
+# Python packaging
+*.egg-info/
+
+# System files
+.DS_Store
 
 # IDE / Editor
 .idea
-.vscode/*
+.vscode/
 !.vscode/extensions.json
+!.vscode/settings.json
+
 *.suo
 *.ntvs*
 *.njsproj
