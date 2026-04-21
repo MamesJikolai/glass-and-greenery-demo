@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* Fonts */
+  --font-montserrat: "Montserrat", sans-serif;
+
   /* Brand Colors */
   --color-brand-50: #7fa889;
   --color-brand-100: #739f7d;
@@ -9,6 +12,9 @@
   --color-brand-400: #3e5a44;
   --color-brand-500: #2d4232; /* Base */
   --color-brand-600: #162119;
+
+  /* Surface Color */
+  --color-surface-primary: #9eab94;
 
   /* Accent Colors */
   --color-accent-100: #ecd6cc;
@@ -40,18 +46,29 @@
     */
 }
 
-h1 {
-  font-size: 64px;
-}
+/* Base global styles */
+@layer base {
+  body {
+    @apply font-montserrat bg-neutral-100 text-neutral-500;
+  }
 
-h2 {
-  font-size: 48px;
-}
-
-h3 {
-  font-size: 32px;
-}
-
-h4 {
-  font-size: 24px;
+  h1 {
+    font-size: 64px;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  p {
+    font-size: 16px;
+  }
 }
