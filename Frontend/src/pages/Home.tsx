@@ -116,9 +116,11 @@ export default function Home() {
                                 <h3 className="text-[24px] md:text-[32px]">
                                     {item.title}
                                 </h3>
-                                <div
-                                    className={`${openFaqIndex === index ? 'bg-neutral-500' : 'bg-neutral-100'} w-[32px] h-[32px] shrink-0`}
-                                ></div>
+                                <button className="material-symbols-outlined text-[40px]!">
+                                    {openFaqIndex === index
+                                        ? 'collapse_all'
+                                        : 'expand_all'}
+                                </button>
                             </div>
 
                             <div
