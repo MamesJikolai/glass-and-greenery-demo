@@ -1,7 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import ButtonAccent from './ButtonAccent'
 
 interface BannerProps {
-    isLanding?: boolean
+    isLanding: boolean
     title?: string
     backgroundImage: string
 }
@@ -11,8 +12,12 @@ export default function Banner({
     title,
     backgroundImage,
 }: BannerProps) {
+    const navigate = useNavigate()
+
     return (
-        <div className="text-neutral-100 w-full h-fit md:h-[600px] px-2.5 py-10 md:p-32 relative">
+        <div
+            className={`text-neutral-100 w-full ${isLanding ? 'h-fit' : 'h-[300px]'}  md:h-[600px] px-2.5 py-10 md:p-32 relative`}
+        >
             <div className="absolute inset-0 bg-brand-500"></div>
 
             <div
