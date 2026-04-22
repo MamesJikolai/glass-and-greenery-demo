@@ -50,13 +50,16 @@ export default function Footer() {
                 <h3 className="text-[24px] md:text-[32px]">
                     Sign Up to our Newsletter
                 </h3>
-                <form className="flex flex-row justify-center items-center gap-4 md:gap-8">
+                <form className="flex flex-row justify-center items-center gap-3 md:gap-6">
                     <input
                         type="email"
                         placeholder="Enter your email..."
                         className="bg-neutral-100 text-neutral-500 placeholder-neutral-400 px-4 py-1 md:px-8 md:py-4 flex-1 rounded-4xl"
                     />
-                    <ButtonAccent children="Sign Up" />
+                    <ButtonAccent
+                        children="Sign Up"
+                        className="px-2! py-1! md:px-4! md:py-2!"
+                    />
                 </form>
             </div>
 
