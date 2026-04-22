@@ -2,8 +2,10 @@ import { useState } from 'react'
 import ButtonAccent from '../components/ButtonAccent'
 import Banner from '../components/Banner'
 import { faqContent } from '../assets/faq'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+    const navigate = useNavigate()
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
     const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -13,12 +15,14 @@ export default function Home() {
             description:
                 'Everything you need to build your own miniature ecosystem at home. Perfect for gifting, unwinding, or discovering a new creative ritual.',
             button: 'Shop DIY Kits',
+            to: '/shop',
         },
         {
             title: 'Guided Workshops',
             description:
                 'Join intimate, hands-on sessions in the city. Learn the art of terrarium building in a calm, welcoming space.',
             button: 'Book a DIY Workshop',
+            to: '/workshop',
         },
     ]
 
@@ -94,6 +98,7 @@ export default function Home() {
                             <ButtonAccent
                                 children={item.button}
                                 className="w-full"
+                                onClick={() => navigate(item.to)}
                             />
                         </div>
                     ))}

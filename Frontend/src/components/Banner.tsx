@@ -39,7 +39,10 @@ export default function Banner({
                             calm, creativity, and connection.
                         </p>
                         <div className="flex flex-row justify-evenly md:justify-start gap-8 w-full">
-                            <ButtonAccent children="Shop DIY Kits" />
+                            <ButtonAccent
+                                children="Shop DIY Kits"
+                                onClick={() => navigate('/shop')}
+                            />
                             <ButtonAccent children="Book a Workshop" />
                         </div>
                     </>
