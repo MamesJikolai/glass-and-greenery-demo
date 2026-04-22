@@ -1,4 +1,4 @@
-import ButtonAccent from "./ButtonAccent";
+import ButtonAccent from './ButtonAccent'
 
 export default function Navbar() {
     return (
@@ -13,5 +13,5 @@ export default function Navbar() {
                 <ButtonAccent children="Workshop" className="rounded-3xl" />
             </div>
         </div>
-    );
+    )
 }

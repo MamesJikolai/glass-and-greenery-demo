@@ -1,33 +1,33 @@
-import ButtonAccent from "./ButtonAccent";
+import ButtonAccent from './ButtonAccent'
 
 export default function Footer() {
     const footerLinks = [
         {
-            title: "Shop & Book",
+            title: 'Shop & Book',
             links: [
-                { name: "DIY Terrarium Kits", link: "" },
-                { name: "Workshop Calendar", link: "" },
-                { name: "Rare Moss Collection", link: "" },
-                { name: "Digital Gift Cards", link: "" },
+                { name: 'DIY Terrarium Kits', link: '' },
+                { name: 'Workshop Calendar', link: '' },
+                { name: 'Rare Moss Collection', link: '' },
+                { name: 'Digital Gift Cards', link: '' },
             ],
         },
         {
-            title: "Support",
+            title: 'Support',
             links: [
-                { name: "Digital Care Guide", link: "" },
-                { name: "FAQ", link: "" },
+                { name: 'Digital Care Guide', link: '' },
+                { name: 'FAQ', link: '' },
             ],
         },
         {
-            title: "The Studio",
+            title: 'The Studio',
             links: [
-                { name: "Our Story", link: "" },
-                { name: "Sustainability Ethics", link: "" },
-                { name: "Corporate Team Building", link: "" },
-                { name: "Contact Us", link: "" },
+                { name: 'Our Story', link: '' },
+                { name: 'Sustainability Ethics', link: '' },
+                { name: 'Corporate Team Building', link: '' },
+                { name: 'Contact Us', link: '' },
             ],
         },
-    ];
+    ]
 
     return (
         <div className="bg-brand-500 text-neutral-100 flex flex-col wrap gap-8 md:gap-16 w-full h-fit mmd:h-[840px] px-2.5 py-10 md:p-32">
@@ -73,5 +73,5 @@ export default function Footer() {
                 Privacy Policy | Terms of Service | Refund Policy
             </p>
         </div>
-    );
+    )
 }

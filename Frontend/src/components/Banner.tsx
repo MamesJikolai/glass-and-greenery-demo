@@ -1,9 +1,9 @@
-import ButtonAccent from "./ButtonAccent";
+import ButtonAccent from './ButtonAccent'
 
 interface BannerProps {
-    isLanding?: boolean;
-    title?: string;
-    backgroundImage: string;
+    isLanding?: boolean
+    title?: string
+    backgroundImage: string
 }
 
 export default function Banner({
@@ -21,7 +21,7 @@ export default function Banner({
             ></div>
 
             <div
-                className={`flex flex-col gap-8 ${isLanding ? "w-fit md:w-[750px]" : "w-full"} h-full justify-center relative z-10`}
+                className={`flex flex-col gap-8 ${isLanding ? 'w-fit md:w-[750px]' : 'w-full'} h-full justify-center relative z-10`}
             >
                 {isLanding ? (
                     <>
@@ -45,5 +45,5 @@ export default function Banner({
                 )}
             </div>
         </div>
-    );
+    )
 }
