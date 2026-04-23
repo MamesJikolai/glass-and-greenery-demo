@@ -37,21 +37,33 @@ export default function Shop() {
             />
 
             <div className="flex flex-col gap-10 md:gap-32 w-full h-fit px-2.5 py-10 md:p-32">
-                <div
-                    id="terrarium"
-                    className="flex flex-col gap-2 md:gap-4 w-full h-fit"
-                >
-                    <h2>Terrariums</h2>
-                    <ShopCards productList={productList} category="terrarium" />
-                </div>
+                {isLoading ? (
+                    <Spinner />
+                ) : (
+                    <>
+                        <div
+                            id="terrarium"
+                            className="flex flex-col gap-2 md:gap-4 w-full h-fit"
+                        >
+                            <h2>Terrariums</h2>
+                            <ShopCards
+                                productList={products}
+                                category="terrarium"
+                            />
+                        </div>
 
-                <div
-                    id="rare-moss"
-                    className="flex flex-col gap-2 md:gap-4 w-full h-fit"
-                >
-                    <h2>Rare Moss Collections</h2>
-                    <ShopCards productList={productList} category="rare_moss" />
-                </div>
+                        <div
+                            id="rare-moss"
+                            className="flex flex-col gap-2 md:gap-4 w-full h-fit"
+                        >
+                            <h2>Rare Moss Collections</h2>
+                            <ShopCards
+                                productList={products}
+                                category="rare_moss"
+                            />
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     )
