@@ -170,16 +170,22 @@ export default function Shop() {
                 backgroundImage="/img/shop.jpg"
             />
 
-            <div className="flex flex-col gap-2 md:gap-4 w-full h-fit px-2.5 py-10 md:p-32">
-                <h2>Terrariums</h2>
+            <div className="flex flex-col gap-10 md:gap-32 w-full h-fit px-2.5 py-10 md:p-32">
+                <div
+                    id="terrarium"
+                    className="flex flex-col gap-2 md:gap-4 w-full h-fit"
+                >
+                    <h2>Terrariums</h2>
+                    <ShopCards productList={productList} category="terrarium" />
+                </div>
 
-                <ShopCards productList={productList} category="terrarium" />
-            </div>
-
-            <div className="flex flex-col gap-8 md:gap-16 w-full h-fit px-2.5 py-10 md:p-32">
-                <h2>Rare Moss Collections</h2>
-
-                <ShopCards productList={productList} category="rare_moss" />
+                <div
+                    id="rare-moss"
+                    className="flex flex-col gap-2 md:gap-4 w-full h-fit"
+                >
+                    <h2>Rare Moss Collections</h2>
+                    <ShopCards productList={productList} category="rare_moss" />
+                </div>
             </div>
         </div>
     )
