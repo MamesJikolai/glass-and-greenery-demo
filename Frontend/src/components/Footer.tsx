@@ -5,9 +5,9 @@ export default function Footer() {
         {
             title: 'Shop & Book',
             links: [
-                { name: 'DIY Terrarium Kits', link: '' },
-                { name: 'Workshop Calendar', link: '' },
-                { name: 'Rare Moss Collection', link: '' },
+                { name: 'DIY Terrarium Kits', link: '/shop#terrarium' },
+                { name: 'Workshop Calendar', link: '/workshop' },
+                { name: 'Rare Moss Collection', link: '/shop#rare-moss' },
                 { name: 'Digital Gift Cards', link: '' },
             ],
         },

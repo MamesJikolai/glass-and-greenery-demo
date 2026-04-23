@@ -43,7 +43,10 @@ export default function Banner({
                                 children="Shop DIY Kits"
                                 onClick={() => navigate('/shop')}
                             />
-                            <ButtonAccent children="Book a Workshop" />
+                            <ButtonAccent
+                                children="Book a Workshop"
+                                onClick={() => navigate('/workshop')}
+                            />
                         </div>
                     </>
                 ) : (
