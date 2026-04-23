@@ -5,6 +5,7 @@ import './index.css'
 import Layout from './Layout'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
+import Workshop from './pages/Workshop'
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: '/shop',
                 element: <Shop />,
+            },
+            {
+                path: '/workshop',
+                element: <Workshop />,
             },
         ],
     },
