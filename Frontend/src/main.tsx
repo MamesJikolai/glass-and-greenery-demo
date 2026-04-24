@@ -6,6 +6,7 @@ import Layout from './Layout'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Workshop from './pages/Workshop'
+import DigiCareGuide from './pages/DigiCareGuide'
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/workshop',
                 element: <Workshop />,
+            },
+            {
+                path: '/faq',
+                element: <DigiCareGuide />,
             },
         ],
     },
