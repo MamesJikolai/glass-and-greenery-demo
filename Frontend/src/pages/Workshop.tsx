@@ -3,30 +3,30 @@ import Banner from '../components/Banner'
 import { apiService } from '../services/userService'
 import Spinner from '../components/Spinner'
 import Calendar from 'react-calendar'
-import ButtonAccent from '../components/ButtonAccent'
+import ScheduleDetails from '../components/SchedueDetails'
 
 export default function Workshop() {
-    // State for the selected calendar date
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
-    // State for days that have workshops (fetched on mount)
     const [daysWithWorkshops, setDaysWithWorkshops] = useState<Date[]>([])
-    // State for the specific time slots of the selected date
     const [dailySchedules, setDailySchedules] = useState<any[]>([])
-    const [error, setError] = useState<string | null>(null)
+    const [workshopError, setWorkshopError] = useState<string | null>(null)
+    const [scheduleError, setScheduleError] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState(true)
     const [isLoadingSchedule, setIsLoadingSchedule] = useState(false)
 
     useEffect(() => {
         const fetchWorkshops = async () => {
             try {
-                setError(null)
+                setWorkshopError(null)
                 setIsLoading(true)
 
                 const data = await apiService.getAllWorkshops()
                 const availableDates = data.map((ws: any) => new Date(ws.date))
                 setDaysWithWorkshops(availableDates)
             } catch (err) {
-                setError('Failed to load workshops. Please try again later.')
+                setWorkshopError(
+                    'Failed to load workshops. Please try again later.'
+                )
             } finally {
                 setIsLoading(false)
             }
@@ -36,17 +36,20 @@ export default function Workshop() {
     }, [])
 
     useEffect(() => {
-        const formattedDate = selectedDate.toISOString().split('T')[0]
+        const year = selectedDate.getFullYear()
+        const month = String(selectedDate.getMonth() + 1).padStart(2, '0')
+        const day = String(selectedDate.getDate()).padStart(2, '0')
+        const formattedDate = `${year}-${month}-${day}`
 
         const fetchWorkshopDay = async () => {
             try {
-                setError(null)
+                setScheduleError(null)
                 setIsLoadingSchedule(true)
 
                 const data = await apiService.getWorkshopsByDate(formattedDate)
                 setDailySchedules(data)
             } catch (err) {
-                setError('Failed to load daily schedules')
+                setScheduleError('Failed to load daily schedules')
             } finally {
                 setIsLoadingSchedule(false)
             }
@@ -77,9 +80,15 @@ export default function Workshop() {
             />
 
             <div className="flex flex-col gap-8 md:gap-16 items-center w-full h-fit px-2.5 py-10 md:p-32">
-                {isLoading ? (
-                    <Spinner />
-                ) : (
+                {workshopError && (
+                    <p className="text-rose-500 text-xl font-medium">
+                        {workshopError}
+                    </p>
+                )}
+
+                {isLoading && !workshopError && <Spinner />}
+
+                {!isLoading && !workshopError && (
                     <>
                         <h2>Schedule Your Workshop</h2>
 
