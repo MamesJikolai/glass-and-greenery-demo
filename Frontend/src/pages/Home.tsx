@@ -65,7 +65,7 @@ export default function Home() {
             <div className="flex flex-col gap-8 md:gap-16 items-center w-full h-fit px-2.5 py-10 md:p-32">
                 <h2>Choose Your Experience</h2>
 
-                <div className="flex flex-row flex-wrap gap-8 md:gap-16 text-neutral-100">
+                <div className="flex flex-row flex-wrap gap-8 md:gap-16 justify-center text-neutral-100">
                     {experienceContent.map((item, index) => (
                         <div
                             key={index}
@@ -86,6 +86,12 @@ export default function Home() {
 
             <div className="flex flex-col gap-8 md:gap-16 items-center bg-brand-500 text-neutral-100 w-full h-fit px-2.5 py-10 md:p-32">
                 <h2>FAQ</h2>
+
+                <FaqAccordion
+                    faqContent={faqContent[0].content.slice(0, 3)}
+                    onToggle={() => onToggle}
+                    openFaqIndex={openFaqIndex}
+                />
 
                 <div className="flex flex-col gap-8 w-full">
                     {faqContent[0].content.slice(0, 3).map((item, index) => (
