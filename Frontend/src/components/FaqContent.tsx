@@ -3,10 +3,10 @@ import { faqContent } from '../assets/faq'
 import FaqAccordion from './FaqAccordion'
 
 export default function FaqContent() {
-    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+    const [openFaqId, setOpenFaqId] = useState<string | null>(null)
 
-    const onToggle = (index: number) => {
-        setOpenFaqIndex(openFaqIndex === index ? null : index)
+    const onToggle = (id: string) => {
+        setOpenFaqId(openFaqId === id ? null : id)
     }
 
     return (
@@ -17,8 +17,9 @@ export default function FaqContent() {
 
                     <FaqAccordion
                         faqContent={category.content}
+                        categoryIndex={index}
+                        openFaqId={openFaqId}
                         onToggle={onToggle}
-                        openFaqIndex={openFaqIndex}
                     />
                 </div>
             ))}
