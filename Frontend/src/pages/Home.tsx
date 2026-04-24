@@ -2,36 +2,15 @@ import { useState } from 'react'
 import ButtonAccent from '../components/ButtonAccent'
 import Banner from '../components/Banner'
 import { faqContent } from '../assets/faq'
+import { experienceContent } from '../assets/experience'
+import { testimonialContent } from '../assets/testimonial'
 import { useNavigate } from 'react-router-dom'
+import FaqAccordion from '../components/FaqAccordion'
 
 export default function Home() {
     const navigate = useNavigate()
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
     const [currentIndex, setCurrentIndex] = useState(0)
-
-    const experienceContent = [
-        {
-            title: 'DIY Terrarium Kits',
-            description:
-                'Everything you need to build your own miniature ecosystem at home. Perfect for gifting, unwinding, or discovering a new creative ritual.',
-            button: 'Shop DIY Kits',
-            to: '/shop',
-        },
-        {
-            title: 'Guided Workshops',
-            description:
-                'Join intimate, hands-on sessions in the city. Learn the art of terrarium building in a calm, welcoming space.',
-            button: 'Book a DIY Workshop',
-            to: '/workshop',
-        },
-    ]
-
-    const testimonialContent = [
-        "“I didn't realize how much I needed this until I sat down and started building my terrarium. Glass & Greenery isn't just a kit—it's a full-on escape. The materials felt so premium, and the mosses were unlike anything I've seen in regular stores. It's now the calmest corner of my apartment.”",
-        '“The workshop was magical. It felt like stepping into a tiny forest in the middle of the city. The guidance was thoughtful without being overwhelming, and I loved learning about each element we used. You can tell Glass & Greenery really cares about both the craft and the experience.”',
-        "“I gave a Glass & Greenery kit as a gift, and it honestly blew everything else out of the water. The hand-blown glass alone was stunning, but the whole experience of creating something alive made it unforgettable. It's not just a product—it's a memory.”",
-        "“I've tried DIY terrarium kits before, but nothing compares to this. The materials are on a completely different level—rare mosses, beautiful textures, and that gorgeous glass vessel. It felt curated, intentional, and genuinely inspiring.”",
-    ]
 
     const onToggle = (index: number) => {
         setOpenFaqIndex(openFaqIndex === index ? null : index)
