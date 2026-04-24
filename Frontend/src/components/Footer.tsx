@@ -14,8 +14,8 @@ export default function Footer() {
         {
             title: 'Support',
             links: [
-                { name: 'Digital Care Guide', link: '' },
-                { name: 'FAQ', link: '' },
+                { name: 'Digital Care Guide', link: '/faq#digital-care-guide' },
+                { name: 'FAQ', link: '/faq#faq' },
             ],
         },
         {
