@@ -22,7 +22,7 @@ export default function FaqAccordion({
                         className="flex flex-row justify-between items-center cursor-pointer"
                         onClick={() => onToggle(index)}
                     >
-                        <h3 className="text-[24px] md:text-[32px]">
+                        <h3 className="text-[24px] md:text-[24px]">
                             {item.title}
                         </h3>
                         <button className="material-symbols-outlined text-[40px]!">
@@ -35,9 +35,7 @@ export default function FaqAccordion({
                     <div
                         className={`grid transition-all duration-200 ease-in-out ${openFaqIndex === index ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                     >
-                        <p className="text-[18px] md:text-[24px] overflow-hidden">
-                            {item.content}
-                        </p>
+                        <p className="overflow-hidden">{item.content}</p>
                     </div>
                 </div>
             ))}

@@ -10,10 +10,10 @@ export default function FaqContent() {
     }
 
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-16">
             {faqContent.map((category, index) => (
-                <div key={index}>
-                    <h2>{category.title}</h2>
+                <div key={index} className="flex flex-col gap-4">
+                    <h3 className="font-medium">{category.title}</h3>
 
                     <FaqAccordion
                         faqContent={category.content}
