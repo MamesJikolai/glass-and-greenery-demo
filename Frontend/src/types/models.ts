@@ -9,12 +9,18 @@ export interface Product {
     is_active: boolean
 }
 
+export interface Schedule {
+    id: number
+    date: string
+    start_time: string
+    end_time: string
+    capacity: number
+}
+
 export interface Workshop {
     id: number
     name: string
     description: string
     price: number
-    date: string
-    start_time: string
-    capacity: number
+    schedules: Schedule[]
 }
