@@ -1,4 +1,6 @@
-export const faqContent = [
+import type { FaqCategory } from '../types/models'
+
+export const faqContent: FaqCategory[] = [
     {
         title: 'The Kits & The Craft',
         content: [

@@ -1,3 +1,13 @@
+export interface FaqItem {
+    title: string
+    content: string
+}
+
+export interface FaqCategory {
+    title: string
+    content: FaqItem[]
+}
+
 export interface Product {
     id: number
     name: string
