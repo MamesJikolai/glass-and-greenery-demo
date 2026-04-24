@@ -95,23 +95,12 @@ export default function Workshop() {
                                 prev2Label={null}
                             />
 
-                            {isLoadingSchedule ? (
-                                <Spinner />
-                            ) : (
-                                <div className="flex flex-col gap-6">
-                                    <p>
-                                        Schedules for{' '}
-                                        {selectedDate.toLocaleDateString()}
-                                    </p>
-
-                                    <div></div>
-
-                                    <ButtonAccent
-                                        children="Add to Cart"
-                                        className="w-full rounded-lg!"
-                                    />
-                                </div>
-                            )}
+                            <ScheduleDetails
+                                isLoadingSchedule={isLoadingSchedule}
+                                scheduleError={scheduleError}
+                                selectedDate={selectedDate}
+                                dailySchedules={dailySchedules}
+                            />
                         </div>
                     </>
                 )}
