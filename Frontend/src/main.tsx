@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Workshop from './pages/Workshop'
 import DigiCareGuide from './pages/DigiCareGuide'
+import OurStory from './pages/OurStory'
+import CorpoTeamBuild from './pages/CorpoTeamBuild'
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
             {
                 path: '/faq',
                 element: <DigiCareGuide />,
+            },
+            {
+                path: '/our-story',
+                element: <OurStory />,
+            },
+            {
+                path: '/corporate-team-building',
+                element: <CorpoTeamBuild />,
             },
         ],
     },
