@@ -22,11 +22,15 @@ export default function PageWrapper({
                 title={title}
                 backgroundImage={backgroundImage}
             />
-            <div
-                className={`flex flex-col gap-8 md:gap-16 w-full h-fit px-2.5 py-10 md:p-32 ${contentClassName}`}
-            >
-                {children}
-            </div>
+            {!isLanding ? (
+                <div
+                    className={`flex flex-col gap-8 md:gap-16 w-full h-fit px-2.5 py-10 md:p-32 ${contentClassName}`}
+                >
+                    {children}
+                </div>
+            ) : (
+                <>{children}</>
+            )}
         </div>
     )
 }
