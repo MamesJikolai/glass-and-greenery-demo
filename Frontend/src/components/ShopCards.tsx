@@ -1,4 +1,4 @@
-import type { Product } from '../types/models'
+import type { Cart, Order, OrderItem, Product } from '../types/models'
 import ButtonAccent from './ButtonAccent'
 
 interface ShopCardsProps {
@@ -20,6 +20,40 @@ export default function ShopCards({ productList, category }: ShopCardsProps) {
         )
     }
 
+    const addToCart = (productId: number) => {
+        const productToAdd = productList.find(
+            (product) => product.id === productId
+        )
+        if (!productToAdd) return
+
+        const shoppingCart: Cart[] = JSON.parse(
+            localStorage.getItem('cart') || '[]'
+        )
+        const existingIndex = shoppingCart.findIndex(
+            (cartItem) =>
+                'product' in cartItem.item &&
+                cartItem.item.product.id === productId
+        )
+
+        if (existingIndex > -1) {
+            const cartItem = shoppingCart[existingIndex].item as OrderItem
+            cartItem.quantity += 1
+        } else {
+            const newCartItem: Cart = {
+                item: {
+                    id: Date.now(),
+                    product: productToAdd,
+                    quantity: 1,
+                    order: {} as Order,
+                },
+            }
+            shoppingCart.push(newCartItem)
+        }
+
+        localStorage.setItem('cart', JSON.stringify(shoppingCart))
+        window.dispatchEvent(new Event('cartUpdated'))
+    }
+
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-12 w-full">
             {filteredProducts.map((product) => (
@@ -39,6 +73,7 @@ export default function ShopCards({ productList, category }: ShopCardsProps) {
                     </div>
                     <ButtonAccent
                         children="Add to Cart"
+                        onClick={() => addToCart(product.id)}
                         className="w-full rounded-none!"
                     />
                 </div>

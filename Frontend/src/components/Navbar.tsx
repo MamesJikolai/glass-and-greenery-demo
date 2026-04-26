@@ -1,8 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import ButtonAccent from './ButtonAccent'
+import { useEffect, useState } from 'react'
 
 export default function Navbar() {
     const navigate = useNavigate()
+
+    const [cartItemCount, setCartItemCount] = useState(0)
+
+    const updateCount = () =>
+        setCartItemCount(
+            JSON.parse(localStorage.getItem('cart') || '[]').length
+        )
+
+    useEffect(() => {
+        updateCount()
+        window.addEventListener('cartUpdated', updateCount)
+        return () => window.removeEventListener('cartUpdated', updateCount)
+    })
 
     return (
         <div className="bg-brand-500 flex flex-row justify-between w-full h-fit p-2.5 md:px-8 md:py-4">
@@ -31,7 +45,7 @@ export default function Navbar() {
 
                     {/* The Badge */}
                     <div className="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 bg-accent-500 group-hover:bg-accent-600 text-white text-[12px] font-bold rounded-full transition-colors">
-                        3
+                        {cartItemCount}
                     </div>
                 </button>
             </div>
