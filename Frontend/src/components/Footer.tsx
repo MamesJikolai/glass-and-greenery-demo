@@ -21,9 +21,12 @@ export default function Footer() {
         {
             title: 'The Studio',
             links: [
-                { name: 'Our Story', link: '' },
+                { name: 'Our Story', link: '/our-story' },
                 { name: 'Sustainability Ethics', link: '' },
-                { name: 'Corporate Team Building', link: '' },
+                {
+                    name: 'Corporate Team Building',
+                    link: '/corporate-team-building',
+                },
                 { name: 'Contact Us', link: '' },
             ],
         },

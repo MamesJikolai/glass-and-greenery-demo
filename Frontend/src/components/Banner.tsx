@@ -16,7 +16,7 @@ export default function Banner({
 
     return (
         <div
-            className={`text-neutral-100 w-full ${isLanding ? 'h-fit' : 'h-[300px]'}  md:h-[600px] px-2.5 py-10 md:p-32 relative`}
+            className={`text-neutral-100 w-full ${isLanding ? 'h-fit' : 'h-[300px] text-center'}  md:h-[600px] px-2.5 py-10 md:p-32 relative`}
         >
             <div className="absolute inset-0 bg-brand-500"></div>
 

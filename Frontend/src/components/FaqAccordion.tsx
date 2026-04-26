@@ -28,7 +28,7 @@ export default function FaqAccordion({
                             className="flex flex-row justify-between items-center cursor-pointer"
                             onClick={() => onToggle(itemId)}
                         >
-                            <h3 className="text-[24px] md:text-[24px]">
+                            <h3 className="text-[24px] md:text-[24px] mb-0!">
                                 {item.title}
                             </h3>
                             <button className="material-symbols-outlined text-[40px]!">

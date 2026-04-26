@@ -37,7 +37,7 @@ export default function Home() {
         <div className="flex flex-col w-full">
             <Banner isLanding={true} backgroundImage="/img/landing.jpg" />
 
-            <div className="flex flex-col gap-8 md:gap-16 text-center bg-brand-500 text-neutral-100 w-full h-fit px-2.5 py-10 md:p-16">
+            <div className="flex flex-col gap-4 md:gap-18 text-center bg-brand-500 text-neutral-100 w-full h-fit px-2.5 py-10 md:p-16">
                 <h2>What Makes Us Different?</h2>
 
                 <div className="flex flex-row flex-wrap justify-center text-left md:text-center gap-y-8 md:gap-x-32 md:gap-y-16">

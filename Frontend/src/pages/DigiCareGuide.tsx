@@ -10,12 +10,12 @@ export default function DigiCareGuide() {
                 backgroundImage="/img/landing.jpg"
             />
 
-            <div className="flex flex-col gap-8 md:gap-16 items-center w-full h-fit px-2.5 py-10 md:p-32">
+            <div className="flex flex-col gap-8 md:gap-16 items-start w-full h-fit px-2.5 py-10 md:p-32">
                 <div id="digital-care-guide" className="self-start">
                     <h2 className="font-bold">
                         Nurturing Your Miniature Forest
                     </h2>
-                    <p className="mt-4">
+                    <p>
                         You don't need a green thumb to cultivate life. Here is
                         everything you need to know to keep your terrarium
                         thriving.
