@@ -11,7 +11,7 @@ export default function DigiCareGuide() {
             />
 
             <div className="flex flex-col gap-8 md:gap-16 items-start w-full h-fit px-2.5 py-10 md:p-32">
-                <div id="digital-care-guide" className="self-start">
+                <section id="digital-care-guide" className="self-start">
                     <h2 className="font-bold">
                         Nurturing Your Miniature Forest
                     </h2>
@@ -20,9 +20,9 @@ export default function DigiCareGuide() {
                         everything you need to know to keep your terrarium
                         thriving.
                     </p>
-                </div>
+                </section>
 
-                <div>
+                <section>
                     <h3 className="font-medium">The Golden Rules of Care:</h3>
 
                     <ul>
@@ -47,11 +47,11 @@ export default function DigiCareGuide() {
                             breathe and prevent mold.
                         </li>
                     </ul>
-                </div>
+                </section>
 
-                <div id="faq">
+                <section id="faq">
                     <FaqContent />
-                </div>
+                </section>
             </div>
         </div>
     )
