@@ -4,6 +4,7 @@ import ShopCards from '../components/ShopCards'
 import type { Product } from '../types/models'
 import { apiService } from '../services/userService'
 import Spinner from '../components/Spinner'
+import PageWrapper from '../components/PageWrapper'
 
 export default function Shop() {
     const [products, setProducts] = useState<Product[]>([])
@@ -28,43 +29,53 @@ export default function Shop() {
         fetchProducts()
     }, [])
 
-    return (
-        <div className="flex flex-col w-full">
-            <Banner
+    if (error) {
+        return (
+            <PageWrapper
                 isLanding={false}
                 title="Shop All"
                 backgroundImage="/img/shop.jpg"
-            />
+            >
+                <p className="text-rose-500">{error}</p>
+            </PageWrapper>
+        )
+    }
 
-            <div className="flex flex-col gap-10 md:gap-32 w-full h-fit px-2.5 py-10 md:p-32">
-                {isLoading ? (
-                    <Spinner />
-                ) : (
-                    <>
-                        <div
-                            id="terrarium"
-                            className="flex flex-col gap-2 md:gap-4 w-full h-fit"
-                        >
-                            <h2>Terrariums</h2>
-                            <ShopCards
-                                productList={products}
-                                category="terrarium"
-                            />
-                        </div>
+    if (isLoading) {
+        return (
+            <PageWrapper
+                isLanding={false}
+                title="Shop All"
+                backgroundImage="/img/shop.jpg"
+            >
+                <Spinner />
+            </PageWrapper>
+        )
+    }
 
-                        <div
-                            id="rare-moss"
-                            className="flex flex-col gap-2 md:gap-4 w-full h-fit"
-                        >
-                            <h2>Rare Moss Collections</h2>
-                            <ShopCards
-                                productList={products}
-                                category="rare_moss"
-                            />
-                        </div>
-                    </>
-                )}
-            </div>
-        </div>
+    return (
+        <PageWrapper
+            isLanding={false}
+            title="Shop All"
+            backgroundImage="/img/shop.jpg"
+        >
+            <>
+                <section
+                    id="terrarium"
+                    className="flex flex-col gap-2 md:gap-4 w-full h-fit"
+                >
+                    <h2>Terrariums</h2>
+                    <ShopCards productList={products} category="terrarium" />
+                </section>
+
+                <section
+                    id="rare-moss"
+                    className="flex flex-col gap-2 md:gap-4 w-full h-fit"
+                >
+                    <h2>Rare Moss Collections</h2>
+                    <ShopCards productList={products} category="rare_moss" />
+                </section>
+            </>
+        </PageWrapper>
     )
 }

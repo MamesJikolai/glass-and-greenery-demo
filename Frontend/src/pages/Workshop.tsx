@@ -4,6 +4,7 @@ import { apiService } from '../services/userService'
 import Spinner from '../components/Spinner'
 import Calendar from 'react-calendar'
 import ScheduleDetails from '../components/SchedueDetails'
+import PageWrapper from '../components/PageWrapper'
 
 export default function Workshop() {
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
@@ -58,6 +59,32 @@ export default function Workshop() {
         fetchWorkshopDay()
     }, [selectedDate])
 
+    if (workshopError) {
+        return (
+            <PageWrapper
+                isLanding={false}
+                title="Workshop"
+                backgroundImage="/img/workshop.jpg"
+            >
+                <p className="text-rose-500 text-xl font-medium">
+                    {workshopError}
+                </p>
+            </PageWrapper>
+        )
+    }
+
+    if (isLoading) {
+        return (
+            <PageWrapper
+                isLanding={false}
+                title="Workshop"
+                backgroundImage="/img/workshop.jpg"
+            >
+                <Spinner />
+            </PageWrapper>
+        )
+    }
+
     const tileClassName = ({ date, view }: { date: Date; view: string }) => {
         if (view === 'month') {
             // If the date exists in our array of available dates, give it a special class
@@ -72,48 +99,33 @@ export default function Workshop() {
     }
 
     return (
-        <div className="flex flex-col w-full">
-            <Banner
-                isLanding={false}
-                title="Workshop"
-                backgroundImage="/img/workshop.jpg"
-            />
+        <PageWrapper
+            isLanding={false}
+            title="Workshop"
+            backgroundImage="/img/workshop.jpg"
+            contentClassName="items-center"
+        >
+            <>
+                <h2>Schedule Your Workshop</h2>
 
-            <div className="flex flex-col gap-8 md:gap-16 items-center w-full h-fit px-2.5 py-10 md:p-32">
-                {workshopError && (
-                    <p className="text-rose-500 text-xl font-medium">
-                        {workshopError}
-                    </p>
-                )}
+                <div className="flex flex-col gap-6 w-full max-w-md border-2 border-brand-500 rounded-xl p-6">
+                    <Calendar
+                        onChange={(value) => setSelectedDate(value as Date)}
+                        value={selectedDate}
+                        defaultView="month"
+                        tileClassName={tileClassName}
+                        next2Label={null}
+                        prev2Label={null}
+                    />
 
-                {isLoading && !workshopError && <Spinner />}
-
-                {!isLoading && !workshopError && (
-                    <>
-                        <h2>Schedule Your Workshop</h2>
-
-                        <div className="flex flex-col gap-6 w-full max-w-md border-2 border-brand-500 rounded-xl p-6">
-                            <Calendar
-                                onChange={(value) =>
-                                    setSelectedDate(value as Date)
-                                }
-                                value={selectedDate}
-                                defaultView="month"
-                                tileClassName={tileClassName}
-                                next2Label={null}
-                                prev2Label={null}
-                            />
-
-                            <ScheduleDetails
-                                isLoadingSchedule={isLoadingSchedule}
-                                scheduleError={scheduleError}
-                                selectedDate={selectedDate}
-                                dailySchedules={dailySchedules}
-                            />
-                        </div>
-                    </>
-                )}
-            </div>
-        </div>
+                    <ScheduleDetails
+                        isLoadingSchedule={isLoadingSchedule}
+                        scheduleError={scheduleError}
+                        selectedDate={selectedDate}
+                        dailySchedules={dailySchedules}
+                    />
+                </div>
+            </>
+        </PageWrapper>
     )
 }
