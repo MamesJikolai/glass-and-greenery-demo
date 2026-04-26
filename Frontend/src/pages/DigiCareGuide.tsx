@@ -1,16 +1,14 @@
-import Banner from '../components/Banner'
 import FaqContent from '../components/FaqContent'
+import PageWrapper from '../components/PageWrapper'
 
 export default function DigiCareGuide() {
     return (
-        <div className="flex flex-col w-full">
-            <Banner
-                isLanding={false}
-                title="Digital Care Guide & FAQ"
-                backgroundImage="/img/landing.jpg"
-            />
-
-            <div className="flex flex-col gap-8 md:gap-16 items-start w-full h-fit px-2.5 py-10 md:p-32">
+        <PageWrapper
+            isLanding={false}
+            title="Digital Care Guide"
+            backgroundImage="img/digital-care-guide.jpg"
+        >
+            <>
                 <section id="digital-care-guide" className="self-start">
                     <h2 className="font-bold">
                         Nurturing Your Miniature Forest
@@ -52,7 +50,7 @@ export default function DigiCareGuide() {
                 <section id="faq">
                     <FaqContent />
                 </section>
-            </div>
-        </div>
+            </>
+        </PageWrapper>
     )
 }

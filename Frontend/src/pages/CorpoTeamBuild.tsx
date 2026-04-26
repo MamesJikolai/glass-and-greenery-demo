@@ -1,7 +1,7 @@
 import type React from 'react'
-import Banner from '../components/Banner'
 import ButtonAccent from '../components/ButtonAccent'
 import { useState } from 'react'
+import PageWrapper from '../components/PageWrapper'
 
 export default function CorpoTeamBuild() {
     const [formData, setFormData] = useState({
@@ -28,23 +28,21 @@ export default function CorpoTeamBuild() {
         alert('Inquiry submitted! We will get back to you as soon as possible.')
     }
     return (
-        <div className="flex flex-col w-full">
-            <Banner
-                isLanding={false}
-                title="Corporate Team Building"
-                backgroundImage="/img/landing.jpg"
-            />
-
-            <div className="flex flex-col gap-8 md:gap-16 items-start w-full h-fit px-2.5 py-10 md:p-32">
-                <div id="digital-care-guide" className="self-start">
+        <PageWrapper
+            isLanding={false}
+            title="Corporate Team Building"
+            backgroundImage="img/corporate-team-building.jpg"
+        >
+            <>
+                <section id="digital-care-guide" className="self-start">
                     <h2 className="font-bold">Cultivate Connection.</h2>
                     <p>
                         Swap the screens for soil with our private group plant
                         therapy sessions.
                     </p>
-                </div>
+                </section>
 
-                <div>
+                <section>
                     <h3 className="font-medium">The Experience:</h3>
                     <p>
                         Corporate bonding shouldn't feel like a chore. Our
@@ -61,9 +59,9 @@ export default function CorpoTeamBuild() {
                         beautiful, living piece of art for their desk—and a
                         refreshed state of mind.
                     </p>
-                </div>
+                </section>
 
-                <div>
+                <section>
                     <h3 className="font-medium">What We Offer:</h3>
 
                     <ul>
@@ -79,7 +77,7 @@ export default function CorpoTeamBuild() {
                             the forest to your office.
                         </li>
                     </ul>
-                </div>
+                </section>
 
                 <form
                     onSubmit={handleInquirySubmit}
@@ -149,7 +147,7 @@ export default function CorpoTeamBuild() {
 
                     <ButtonAccent children="Submit" className="w-full" />
                 </form>
-            </div>
-        </div>
+            </>
+        </PageWrapper>
     )
 }

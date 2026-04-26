@@ -1,23 +1,21 @@
-import Banner from '../components/Banner'
+import PageWrapper from '../components/PageWrapper'
 
 export default function OurStory() {
     return (
-        <div className="flex flex-col w-full">
-            <Banner
-                isLanding={false}
-                title="Our Story"
-                backgroundImage="/img/landing.jpg"
-            />
-
-            <div className="flex flex-col gap-8 md:gap-16 items-start w-full h-fit px-2.5 py-10 md:p-32">
-                <div id="digital-care-guide" className="self-start">
+        <PageWrapper
+            isLanding={false}
+            title="Our Story"
+            backgroundImage="img/our-story.jpg"
+        >
+            <>
+                <section id="digital-care-guide" className="self-start">
                     <h2 className="font-bold">Rooted in Intention.</h2>
                     <p>
                         Bringing a moment of stillness to a fast-moving world.
                     </p>
-                </div>
+                </section>
 
-                <div>
+                <section>
                     <h3 className="font-medium">Our Story:</h3>
                     <p>
                         Glass & Greenery wasn't born in a greenhouse; it was
@@ -44,9 +42,9 @@ export default function OurStory() {
                         down, create with intention, and cultivate a little
                         piece of the wild.
                     </p>
-                </div>
+                </section>
 
-                <div>
+                <section>
                     <h3 className="font-medium">
                         Our Commitment to the Earth:
                     </h3>
@@ -76,8 +74,8 @@ export default function OurStory() {
                             recyclable.
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
+                </section>
+            </>
+        </PageWrapper>
     )
 }
