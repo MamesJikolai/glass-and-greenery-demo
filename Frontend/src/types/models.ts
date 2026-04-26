@@ -34,3 +34,36 @@ export interface Workshop {
     price: number
     schedules: Schedule[]
 }
+
+export interface Order {
+    id: number
+    name: string
+    email: string
+    total_amount: number
+    is_paid: boolean
+    created_at: string
+}
+
+export interface OrderItem {
+    id: number
+    order: Order
+    product: Product
+    quantity: number
+}
+
+export interface Booking {
+    id: number
+    order: Order
+    schedule: Schedule
+    seats_reserved: number
+}
+
+export interface Cart {
+    item: OrderItem | Booking
+}
+
+export interface Newsletter {
+    id: number
+    email: string
+    date_subscribed: string
+}
