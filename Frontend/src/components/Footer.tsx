@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ButtonAccent from './ButtonAccent'
 
 export default function Footer() {
@@ -29,6 +30,24 @@ export default function Footer() {
                 },
                 { name: 'Contact Us', link: '' },
             ],
+        },
+    ]
+
+    const socialLinks = [
+        {
+            link: 'https://www.facebook.com',
+            icon: '/logo/social-facebook.svg',
+            alt: 'Facebook Logo',
+        },
+        {
+            link: 'https://www.instagram.com',
+            icon: '/logo/social-instagram.svg',
+            alt: 'Instagram Logo',
+        },
+        {
+            link: 'https://www.tiktok.com',
+            icon: '/logo/social-tiktok.svg',
+            alt: 'Tiktok Logo',
         },
     ]
 
@@ -66,11 +85,16 @@ export default function Footer() {
                 </form>
             </div>
 
-            <div className="flex flex-row gap-4 md:gap-16 self-center">
-                <div className="w-16 h-16 bg-neutral-50"></div>
-                <div className="w-16 h-16 bg-neutral-50"></div>
-                <div className="w-16 h-16 bg-neutral-50"></div>
-                <div className="w-16 h-16 bg-neutral-50"></div>
+            <div className="flex flex-row gap-4 md:gap-8 self-center">
+                {socialLinks.map((social, index) => (
+                    <Link key={index} to={social.link} target="_blank">
+                        <img
+                            src={social.icon}
+                            alt={social.alt}
+                            className="w-12 aspect-square"
+                        />
+                    </Link>
+                ))}
             </div>
 
             <p className="text-center self-center">
