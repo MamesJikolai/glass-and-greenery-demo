@@ -59,7 +59,9 @@ export interface Booking {
 }
 
 export interface Cart {
-    item: OrderItem | Booking
+    id: number | null
+    type: 'product' | 'schedule'
+    quantity: number
 }
 
 export interface Newsletter {
