@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Banner from '../components/Banner'
 import ShopCards from '../components/ShopCards'
 import type { Product } from '../types/models'
 import { apiService } from '../services/userService'
