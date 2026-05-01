@@ -21,31 +21,20 @@ export default function ShopCards({ productList, category }: ShopCardsProps) {
     }
 
     const addToCart = (productId: number) => {
-        const productToAdd = productList.find(
-            (product) => product.id === productId
-        )
-        if (!productToAdd) return
-
         const shoppingCart: Cart[] = JSON.parse(
             localStorage.getItem('cart') || '[]'
         )
         const existingIndex = shoppingCart.findIndex(
-            (cartItem) =>
-                'product' in cartItem.item &&
-                cartItem.item.product.id === productId
+            (cartItem) => cartItem.id === productId
         )
 
         if (existingIndex > -1) {
-            const cartItem = shoppingCart[existingIndex].item as OrderItem
-            cartItem.quantity += 1
+            shoppingCart[existingIndex].quantity += 1
         } else {
             const newCartItem: Cart = {
-                item: {
-                    id: Date.now(),
-                    product: productToAdd,
-                    quantity: 1,
-                    order: {} as Order,
-                },
+                id: productId,
+                type: 'product',
+                quantity: 1,
             }
             shoppingCart.push(newCartItem)
         }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ButtonAccent from './ButtonAccent'
 import Spinner from './Spinner'
-import type { Schedule, Workshop } from '../types/models'
+import type { Cart, Schedule, Workshop } from '../types/models'
 
 interface ScheduleDetailsProps {
     isLoadingSchedule: boolean
@@ -19,6 +19,29 @@ export default function ScheduleDetails({
     const [selectedScheduleId, setSelectedScheduleId] = useState<number | null>(
         null
     )
+
+    const addToCart = (scheduleId: number | null) => {
+        const shoppingCart: Cart[] = JSON.parse(
+            localStorage.getItem('cart') || '[]'
+        )
+        const existingIndex = shoppingCart.findIndex(
+            (cartItem) => cartItem.id === scheduleId
+        )
+
+        if (existingIndex > -1) {
+            shoppingCart[existingIndex].quantity += 1
+        } else {
+            const newCartItem: Cart = {
+                id: scheduleId,
+                type: 'schedule',
+                quantity: 1,
+            }
+            shoppingCart.push(newCartItem)
+        }
+
+        localStorage.setItem('cart', JSON.stringify(shoppingCart))
+        window.dispatchEvent(new Event('cartUpdated'))
+    }
 
     if (isLoadingSchedule) {
         return <Spinner />
@@ -79,7 +102,10 @@ export default function ScheduleDetails({
                 </div>
             ))}
 
-            <ButtonAccent className="w-full rounded-lg!">
+            <ButtonAccent
+                onClick={() => addToCart(selectedScheduleId)}
+                className="w-full rounded-lg!"
+            >
                 Add to Cart
             </ButtonAccent>
         </div>
