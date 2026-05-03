@@ -22,15 +22,12 @@ export default function Home() {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? testimonialContent.length - 1 : prevIndex - 1
         )
-        console.log(testimonialContent[currentIndex])
     }
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === testimonialContent.length - 1 ? 0 : prevIndex + 1
         )
-
-        console.log(testimonialContent[currentIndex])
     }
 
     return (
